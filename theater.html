@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Magical Mystery Theater</title>
+</head>
+<body>
+    <h1>Magical Mystery Theater</h1>
+    <button type="button" onclick="calculateTicketCost()">Purchase Ticket</button>
+    <script>
+        //Set constant variables
+        const GENERAL_ADMISSION_TICKET_COST = 20;
+        const CHILD_AND_SENIOR_TICKET_COST = 10;
+        const MATINEE_DISCOUNT = 3;
+
+        //Gather input, calculate final ticket cost and display the cost
+        function calculateTicketCost() {
+            const age = prompt('What is your age?');
+            //Initialize cost variable by assigning output from determineAgeBasedCost() function
+            let cost = determineAgeBasedCost(age);
+            const matineeAnswer = prompt('Are you attending a matinee show?');
+            //Process user input: strip leading and trailing spaces, as well as convert string to lower case
+            matineeAnswerProcessed = matineeAnswer.trim().toLowerCase();
+            //Initialize variable matineeDiscount by assigning output from determineMatineeDiscount() function
+            let matineeDiscount = determineMatineeDiscount(matineeAnswerProcessed);
+            //Assign a new value to 'cost' to subtract the matinee discount if the answer to matinee was 'y' or 'yes'
+            cost = cost - matineeDiscount;
+            //Display the final ticket cost
+            alert('Your ticket will cost: $' + cost);
+        }
+
+        //Select ticket cost based on age group
+        function determineAgeBasedCost(age) {
+            if ((age <= 12) || (age >= 65)) {
+                return CHILD_AND_SENIOR_TICKET_COST;
+            }
+            return GENERAL_ADMISSION_TICKET_COST; 
+        }
+
+        //Return matinee discount value if 'yes' or 'y' are entered. Otherwise, the discount equals zero. Before I added 'return 0;' I kept getting 'NaN' for a result.
+        function determineMatineeDiscount(matineeAnswerProcessed) {
+            if ((matineeAnswerProcessed === 'yes') || (matineeAnswerProcessed === 'y')) {
+                return MATINEE_DISCOUNT;
+            }
+            return 0;
+        }
+
+    </script>
+</body>
+</html>
