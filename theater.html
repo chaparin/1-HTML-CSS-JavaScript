@@ -45,6 +45,15 @@
             return 0;
         }
 
+        function calculateTicketCost() {
+            const age = prompt('What is your age?');
+            let cost = determineAgeBasedCost(age);
+            const matineeAnswer = prompt('Are you attending a matinee show?').trim().toLowerCase();
+            const matineeDiscount = matineeAnswer === 'yes' || matineeAnswer === 'y' ? MATINEE_DISCOUNT : 0
+            cost -= matineeDiscount;
+            alert('Your ticket will cost: $' + cost);
+        }
+
     </script>
 </body>
 </html>
