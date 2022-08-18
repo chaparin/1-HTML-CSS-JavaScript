@@ -1,0 +1,13 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1  {
+    font-style: oblique;
+    text-align: center;
+    color: darkolivegreen;
+}
+
+h2 {
+    color: rgb(170, 94, 7);
+}
